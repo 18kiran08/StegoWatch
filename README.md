@@ -93,11 +93,11 @@ code --install-extension stegowatch-1.0.0.vsix
 ### Example Detection
 
 ```
-⚠️ Security Alert: "suspicious-ext" (2 critical)
+Security Alert: "suspicious-ext" (2 critical)
 
-• Dynamic code execution [🔴 Critical] - index.js:42
-• Unicode steganography [🔴 Critical] - utils.js:89
-• Invisible character [🟡 Medium] - main.js:156
+• Dynamic code execution [Critical] - index.js:42
+• Unicode steganography  [Critical] - utils.js:89
+• Invisible character    [Medium] - main.js:156
 
 [View Full Report] [Uninstall] [Dismiss]
 ```
@@ -119,33 +119,33 @@ You can enable/disable individual detections based on your needs:
   
   "malwareDetector.detectUnicodeStego": true,
   // Finds invisible Unicode characters used to hide malicious code
-  // ✅ Keep ON unless you intentionally use Unicode variation selectors
+  // Keep ON unless you intentionally use Unicode variation selectors
   
   "malwareDetector.detectInvisibleChars": true,
   // Detects zero-width spaces and hidden characters
-  // ✅ Keep ON - these are almost never legitimate in code
+  // Keep ON - these are almost never legitimate in code
   
   "malwareDetector.detectExcessiveIndentation": true,
   // Warns about code hidden far to the right (200+ spaces)
-  // ✅ Keep ON unless you have extremely deep nesting
+  // Keep ON unless you have extremely deep nesting
   
   "malwareDetector.detectBidiOverride": true,
   // Catches Trojan Source attacks (CVE-2021-42574)
-  // ✅ Keep ON - bidirectional overrides shouldn't exist in code
+  // Keep ON - bidirectional overrides shouldn't exist in code
   
   "malwareDetector.detectHomoglyphs": true,
   // Finds lookalike characters (e.g., Cyrillic 'а' vs Latin 'a')
-  // ⚠️ May warn on legitimate non-English code - see language settings below
+  // May warn on legitimate non-English code - see language settings below
   
   "malwareDetector.detectSuspiciousEval": true,
   // Flags eval(atob(...)), new Function(atob(...)), etc.
-  // ✅ Keep ON - legitimate uses are rare, use // security-ignore if needed
+  // Keep ON - legitimate uses are rare, use // security-ignore if needed
   
   // === Extension Scanning ===
   
   "malwareDetector.autoScanNewExtensions": true,
   // Automatically scans extensions when you install them
-  // ✅ Recommended: Keep ON for supply chain security
+  // Recommended: Keep ON for supply chain security
   
   // === Sensitivity Settings ===
   
@@ -162,7 +162,7 @@ You can enable/disable individual detections based on your needs:
   
   "malwareDetector.allowCJKinComments": true,
   // Allow Chinese/Japanese/Korean in comments without warnings
-  // ✅ Keep ON if your team uses these languages
+  // Keep ON if your team uses these languages
   
   "malwareDetector.excludeLanguages": [],
   // Don't scan certain file types at all
@@ -214,7 +214,7 @@ Add `// security-ignore` on the line before the warning:
 
 ```javascript
 // security-ignore: Using eval for dynamic template rendering
-eval(templateCode);  // ✅ This line will be ignored
+eval(templateCode);  // This line will be ignored
 ```
 
 ### Method 2: Quick Fix
